@@ -1,0 +1,55 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+
+}
+
+group = 'br.com.mglu'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+	implementation 'org.springframework:spring-web:5.3.8'
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.5.2'
+	implementation 'io.springfox:springfox-swagger2:3.0.0'
+    implementation 'org.projectlombok:lombok:1.18.18'
+	implementation 'junit:junit:3.8.2'
+	implementation 'junit:junit:4.13.1'
+	implementation 'org.testng:testng:7.1.0'
+	implementation 'org.testng:testng:7.1.0'
+	implementation 'junit:junit:4.13.1'
+	implementation 'junit:junit:4.13.1'
+
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.projectlombok:lombok:1.18.18'
+	testImplementation 'junit:junit:4.9'
+
+}
+
+test {
+	useJUnitPlatform()
+}
+
+tasks.withType(Test) {
+	testLogging {
+		exceptionFormat "full"
+		events "started", "skipped", "passed", "failed"
+		showStandardStreams true
+	}
+}
